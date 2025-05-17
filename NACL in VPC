@@ -1,0 +1,66 @@
+In AWS (Amazon Web Services), **NACL** stands for **Network Access Control List**. It's a **virtual firewall** for controlling **inbound and outbound traffic** at the **subnet level** within a **VPC (Virtual Private Cloud)**.
+
+---
+
+### 🔐 **Key Features of NACL:**
+
+1. **Subnet-level Security:**
+
+   * NACLs operate at the **subnet level**, unlike security groups which operate at the instance level.
+
+2. **Stateless:**
+
+   * NACLs are **stateless**, meaning **you must define both inbound and outbound rules** explicitly.
+   * Responses to allowed inbound traffic are **not automatically allowed** outbound.
+
+3. **Rule Evaluation:**
+
+   * Rules are evaluated in **numbered order** from lowest to highest.
+   * The **first matching rule** is applied.
+   * If no rule matches, the default is **deny**.
+
+4. **Allow & Deny:**
+
+   * NACLs support **both allow and deny rules** (unlike security groups which only allow).
+
+5. **Default NACL:**
+
+   * Every VPC has a default NACL that **allows all inbound and outbound traffic**.
+   * You can customize it or create custom NACLs.
+
+6. **Associated with Subnets:**
+
+   * A subnet can be associated with **only one NACL** at a time.
+   * But one NACL can be associated with **multiple subnets**.
+
+---
+
+### 📊 **NACL vs. Security Group:**
+
+| Feature         | NACL                | Security Group            |
+| --------------- | ------------------- | ------------------------- |
+| Level           | Subnet              | Instance                  |
+| Stateful        | No (stateless)      | Yes                       |
+| Allow/Deny      | Allow and Deny      | Only Allow                |
+| Evaluated Order | Rule number order   | All rules evaluated       |
+| Association     | One NACL per subnet | Multiple SGs per instance |
+
+---
+
+### 🧾 **Example NACL Rule:**
+
+**Inbound Rule:**
+
+| Rule # | Type | Protocol | Port Range | Source    | Allow/Deny |
+| ------ | ---- | -------- | ---------- | --------- | ---------- |
+| 100    | HTTP | TCP      | 80         | 0.0.0.0/0 | ALLOW      |
+| \*     | ALL  | ALL      | ALL        | 0.0.0.0/0 | DENY       |
+
+**Outbound Rule:**
+
+| Rule # | Type  | Protocol | Port Range | Destination | Allow/Deny |
+| ------ | ----- | -------- | ---------- | ----------- | ---------- |
+| 100    | HTTPS | TCP      | 443        | 0.0.0.0/0   | ALLOW      |
+| \*     | ALL   | ALL      | ALL        | 0.0.0.0/0   | DENY       |
+
+---
