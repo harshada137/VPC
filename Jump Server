@@ -1,0 +1,43 @@
+A Jump Server (also called Bastion Host) in a VPC is a special-purpose instance used to securely connect to instances in a private subnet that don’t have direct internet access.
+
+
+---
+
+Why Use a Jump Server?
+Private instances do not have public IPs.
+You can't SSH directly into them from the internet.
+A Jump Server bridges the gap, allowing secure SSH/RDP access to private resources.
+
+---
+
+Typical Setup:
+1. Jump Server is launched in a public subnet with:
+    *A public IP address
+    *Appropriate security group rules (e.g., allow port 22 from your IP)
+
+2. Target private EC2 instances are in a private subnet.
+
+3. SSH into the Jump Server, then use it to SSH into the private instances.
+
+
+---
+
+Security Best Practices:
+Use key-based SSH authentication.
+Allow SSH (port 22) only from your IP (restrict access).
+Use IAM roles and session logging if integrating with AWS Systems Manager.
+Optionally, use Session Manager (from AWS SSM) as a more secure, auditable alternative to Jump Servers.
+
+---
+
+Example Network Flow:
+
+[Your Laptop]
+     |
+     | SSH (port 22)
+     v
+[Jump Server in Public Subnet]
+     |
+     | SSH (port 22)
+     v
+[Private EC2 in Private Subnet]
