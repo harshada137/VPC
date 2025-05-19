@@ -1,0 +1,43 @@
+ DBMS vs RDBMS:
+
+1. Data Storage:
+DBMS: Stores data as files or in a hierarchical format.
+RDBMS: Stores data in tabular form using rows and columns.
+
+2. Data Relationships:
+DBMS: Does not support relationships between data.
+RDBMS: Supports relationships through primary and foreign keys.
+
+3. Data Redundancy:
+DBMS: High data redundancy.
+RDBMS: Reduces redundancy through normalization.
+
+4. Data Integrity:
+DBMS: Less emphasis on data integrity.
+RDBMS: Ensures high data integrity with constraints and rules.
+
+5. Users:
+DBMS: Supports single users.
+RDBMS: Supports multiple users simultaneously.
+
+6. ACID Compliance:
+DBMS: May not support full ACID properties.
+RDBMS: Fully supports ACID properties.
+
+7. Security Features:
+DBMS: Limited security features.
+RDBMS: Advanced security with roles, permissions, etc.
+
+8. Normalization:
+DBMS: Normalization is not used.
+RDBMS: Uses normalization to organize data efficiently.
+
+9. Examples:
+DBMS: File System, XML, MS Access (basic).
+RDBMS: MySQL, PostgreSQL, Oracle, SQL Server.
+
+10. Performance with Large Data:
+DBMS: Poor performance with large volumes of data.
+RDBMS: Optimized for handling large datasets efficiently.
+
+
