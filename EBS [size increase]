@@ -1,0 +1,38 @@
+## HOW TO INCREASE SIZE OF NEW EBS
+
+1. Volume must created
+
+2. Volume must be attached
+
+3. Launch an EC2 instance
+A. SSH the instance
+B. lsblk  //fore command to check file or EBS size
+
+4. Go To Volume
+A. click on volume ID
+B. Go to Modify section
+a. increase size [size of EBS only increase]
+b. click on modify
+
+5. lsblk //size of ebs must be change
+
+6. df -h
+
+7. sudo growpart /dev/xvda1  [increase partition /dev/xvda1 = device name]
+
+8. lsblk
+
+9. df -h
+
+10. sudo grow_xfs -d / [/ path of directory which is mounte ]
+
+11. size is increase
+
+** we can attach and detach Normal Volume even if EC2 in running or stoped **
+** for Root Volume we need to stop instance for attach or detach **
+
+
+
+
+
+
