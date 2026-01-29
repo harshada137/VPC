@@ -1,54 +1,91 @@
-# CloudWatch Practical
+# ☁️ CloudWatch Practical
 
 
-** Create a SNS Topic **
-1. go to sns
-2. click on Create Topic
-3. -- click on next step
-a. select "standard"
-b. name topic
-c. hit on create Topic
+## **Create an SNS Topic**
 
-* Create Subscription *
-1. After creating topic scroll down and click on "Create Subscription"
-a. select protocol
-b. give your "Email"
-c. hit on create Subscription
-d. open your email and click on confirm [for confirming that email is yours]
+1. Go to **SNS**
+2. Click on **Create topic**
+3. Click on **Next step**
+
+   * a. Select **Standard**
+   * b. Enter a **Topic name**
+   * c. Click on **Create topic**
 
 
 
-** ALARMS CREATION **
-1. Go to cloudwatch -- click on Alarm
- 
-2. -- Click on "Create Alarm"
-a. -- click on select matric
-   -select the service of which you have to create alarm [EC2]
-   -copy instance id of your EC2
-   -go inside "per instance Matric" and then peaste your instance id there
-   -scroll down and select "CPUUtilization"
-   -click on select matric
-   -- In second step you just need to setup time according to your need
-b. select an SNS Topic and dont change anything else [go to next page]
-c. Name Your "Alarm"
-d. hit on create alarm
+## **Create Subscription**
 
-3. Go to EC2 
-a. scroll down and click on "Monitoring"
-b. -- click on Manage Detailed Monitoring 
-   -- Enable the detailed monitoring and confirm
+1. After creating the topic, scroll down and click on **Create subscription**
 
-** Increase Trafic For Alarm Working **
-1. SSH the instance
-2. Install Stres Software [to increase the trafic]
-a. sudo yum install stress -y [command for installation]
-b. stress --cpu 8 --timeout 60 [command for increasing traffic]
-
-2. Monitor your EC2 
-
-3. Continue to fire command untill your trafic reaches to limit you have seted while setting matric
-
-4. You must receive an Email after your trafic increasing 
+   * a. Select **Protocol**
+   * b. Enter your **Email**
+   * c. Click on **Create subscription**
+   * d. Open your email and click on **Confirm subscription**
+     *(to confirm that the email is yours)*
 
 
-** DELETE EACH AND EVERY THING AFTER PERFORMING PRACTICAL **
+
+## **ALARMS CREATION**
+
+1. Go to **CloudWatch** → Click on **Alarms**
+2. Click on **Create alarm**
+
+   * a. Click on **Select metric**
+
+     * Select the service for which you want to create the alarm (**EC2**)
+     * Copy the **Instance ID** of your EC2 instance
+     * Go to **Per-Instance Metrics** and paste the **Instance ID**
+     * Scroll down and select **CPUUtilization**
+     * Click on **Select metric**
+     * In the next step, set the **time period** as per your requirement
+   * b. Select an **SNS Topic** and do not change anything else → Click **Next**
+   * c. Enter a **Name** for the alarm
+   * d. Click on **Create alarm**
+
+
+
+## **Enable Detailed Monitoring**
+
+1. Go to **EC2**
+
+   * a. Scroll down and click on **Monitoring**
+   * b. Click on **Manage detailed monitoring**
+
+     * Enable **Detailed monitoring**
+     * Click on **Confirm**
+
+
+
+## **Increase Traffic for Alarm Working**
+
+1. SSH into the EC2 instance
+
+2. Install **Stress** software (to increase traffic)
+
+   * a. Install stress:
+
+     ```
+     sudo yum install stress -y
+     ```
+   * b. Increase CPU load:
+
+     ```
+     stress --cpu 8 --timeout 60
+     ```
+
+3. Monitor your EC2 instance
+
+4. Keep running the command until the traffic reaches the threshold set in the alarm
+
+5. You will receive an **Email notification** once the alarm is triggered
+
+
+
+## ⚠️ **IMPORTANT**
+
+**DELETE EACH AND EVERY RESOURCE AFTER PERFORMING THE PRACTICAL**
+(SNS Topic, Subscription, Alarm, EC2 Instance, etc.)
+
+
+* Make it **exam / interview notes**
+* Add a **diagram flow (SNS → CloudWatch → EC2)**
